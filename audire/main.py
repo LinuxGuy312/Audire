@@ -22,7 +22,10 @@ SOFTWARE.
 """
 
 from audire import dotdict, errors
-from audire.helpers import youtube
+from audire.helpers import (
+    youtube,
+    soundcloud,
+)
 
 
 class Audire:
@@ -37,6 +40,7 @@ class Audire:
         self.platforms = [
             "yt",  # YouTube
             "ytm",  # YouTube Music
+            "soundcloud",
         ]
 
     async def search(
@@ -62,6 +66,9 @@ class Audire:
         if platform == "ytm":
             return await youtube.search(query, True, limit)
 
+        if platform == "soundcloud":
+            return None
+
     async def get_download(self, url: str, platform: str) -> dotdict.DotDict:
         """
         Returns An Object.
@@ -79,3 +86,6 @@ class Audire:
 
         if platform in ("yt", "ytm"):
             return await youtube.get_download(url)
+
+        if platform == "soundcloud":
+            return await soundcloud.get_download(url)
