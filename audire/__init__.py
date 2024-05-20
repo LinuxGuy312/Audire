@@ -23,4 +23,4 @@ SOFTWARE.
 
 from .main import *
 
-__version__ = "1.0.0b2"
+__version__ = "1.0.1b1"
