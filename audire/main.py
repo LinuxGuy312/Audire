@@ -58,8 +58,11 @@ class Audire:
         if platform not in self.platforms:
             raise errors.PlatformNotSupportedError
 
-        if platform in ("yt", "ytm"):
-            return await youtube.search(query, platform, limit)
+        if platform == "yt":
+            return await youtube.search(query, False, limit)
+
+        if platform == "ytm":
+            return await youtube.search(query, True, limit)
 
     async def get_download(self, url: str, platform: str) -> dotdict.DotDict:
         """
