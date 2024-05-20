@@ -23,8 +23,9 @@ SOFTWARE.
 
 from audire import dotdict, errors
 from audire.helpers import (
-    youtube,
+    saavn,
     soundcloud,
+    youtube,
 )
 
 
@@ -38,9 +39,10 @@ class Audire:
 
     def __init__(self):
         self.platforms = [
+            "saavn",  # JioSaavn
+            "soundcloud",  # SoundCloud
             "yt",  # YouTube
             "ytm",  # YouTube Music
-            "soundcloud",
         ]
 
     async def search(
@@ -69,6 +71,9 @@ class Audire:
         if platform == "soundcloud":
             return None
 
+        if platform == "saavn":
+            return await saavn.search(query, limit)
+
     async def get_download(self, url: str, platform: str) -> dotdict.DotDict:
         """
         Returns An Object.
@@ -89,3 +94,6 @@ class Audire:
 
         if platform == "soundcloud":
             return await soundcloud.get_download(url)
+
+        if platform == "saavn":
+            return await saavn.get_download(url)
