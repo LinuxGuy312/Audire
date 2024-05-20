@@ -57,10 +57,10 @@ async def search(query: str, ytmusic: bool, limit: int) -> dotdict.DotDict:
 
 async def get_download(url: str) -> dotdict.DotDict:
     """
-    Gets Download link for given Video ID.
+    Gets Download link for given URL.
 
     Parameters:
-        video_id (str): Video ID of the song to download
+        url (str): URL of the song to download
 
     Returns:
         DotDict (dotdict): DotDict which you can access with dot notation.
