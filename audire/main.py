@@ -40,9 +40,7 @@ class Audire:
         ]
 
     async def search(
-        self, query: str,
-        platform: str = "ytm",
-        limit: int = 10
+        self, query: str, platform: str = "ytm", limit: int = 10
     ) -> dotdict.DotDict:
         """
         Audire Search Function.

@@ -6,7 +6,9 @@ import setuptools
 
 
 def _read(filename, version=False):
-    with open(os.path.join(os.path.dirname(__file__), filename), encoding="utf8") as file:
+    with open(
+        os.path.join(os.path.dirname(__file__), filename), encoding="utf8"
+    ) as file:
         text = file.read()
     if version:
         return re.search(r'__version__ = "(.*?)"', text).group(1)
