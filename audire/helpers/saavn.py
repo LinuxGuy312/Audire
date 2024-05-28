@@ -64,6 +64,6 @@ async def get_download(url: str) -> dotdict.DotDict:
     async with aiohttp.request("GET", url=api, params=params) as response:
         response = await response.json()
         if not response["success"]:
-            raise errors.NoResultsFoundError
+            raise errors.NoDownloadsFoundError
         data = {"data": response["data"][0]["downloadUrl"]}
         return dotdict.DotDict(data)

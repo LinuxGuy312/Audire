@@ -56,3 +56,11 @@ class NoResultsFoundError(BaseError):
     """
 
     message = "No Results Found for the given query"
+
+
+class NoDownloadsFoundError(BaseError):
+    """
+    Exception raised when no download results are found for the given URL.
+    """
+
+    message = "No Download Results Found for the given URL"

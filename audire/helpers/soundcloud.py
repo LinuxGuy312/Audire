@@ -50,6 +50,6 @@ async def get_download(url: str) -> dotdict.DotDict:
         response = await response.json()
         dlurl = response.get("url")
         if not url:
-            raise errors.NoResultsFoundError
+            raise errors.NoDownloadsFoundError
         data = {"download_url": dlurl}
         return dotdict.DotDict(data)

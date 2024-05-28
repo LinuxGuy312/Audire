@@ -73,5 +73,5 @@ async def get_download(url):
     async with aiohttp.request("GET", url=api, params={"url": url}) as response:
         data = await response.json()
     if not data.get("success"):
-        raise errors.NoResultsFoundError
+        raise errors.NoDownloadsFoundError
     return {"download_url": data["link"]}
